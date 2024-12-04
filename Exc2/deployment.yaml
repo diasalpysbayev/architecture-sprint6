@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dias
+  labels:
+    app: dias
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dias
+  template:
+    metadata:
+      labels:
+        app: dias
+    spec:
+      containers:
+        - name: test-container
+          image: nginx:latest
+          resources:
+            requests:
+              memory: "30Mi"
+            limits:
+              memory: "30Mi"
+          ports:
+            - containerPort: 80
